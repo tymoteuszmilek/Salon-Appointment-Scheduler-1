@@ -13,7 +13,7 @@ CREATE DATABASE salon;
 
 CREATE TABLE appointments (
     appointment_id SERIAL      NOT NULL,
-    customer_id    INTEGER     NOT NULL
+    customer_id    INTEGER     NOT NULL,
     service_id     INTEGER     NOT NULL,
     time           VARCHAR(50) NOT NULL
 );
@@ -39,12 +39,12 @@ INSERT INTO services VALUES
 ---------------------------------------------------------------------
 4. Primary Key and Foreign Key assignment
 ---------------------------------------------------------------------
-ALTER TABLE appointments ADD PRIMARY KEY (appointment_id)
-ALTER TABLE services     ADD PRIMARY KEY (service_id)
-ALTER TABLE customers    ADD PRIMARY KEY (customer_id)
+ALTER TABLE appointments ADD PRIMARY KEY (appointment_id);
+ALTER TABLE services     ADD PRIMARY KEY (service_id);
+ALTER TABLE customers    ADD PRIMARY KEY (customer_id);
 
-ALTER TABLE appointments ADD FOREIGN KEY (customer_id) REFERENCES customers (customer_id)
-ALTER TABLE appointments ADD FOREIGN KEY (service_id)  REFERENCES services  (service_id)
+ALTER TABLE appointments ADD FOREIGN KEY (customer_id) REFERENCES customers (customer_id);
+ALTER TABLE appointments ADD FOREIGN KEY (service_id)  REFERENCES services  (service_id);
 
 ---------------------------------------------------------------------
 5. Compact sql db queries into worldcup.sql file.
